@@ -1,6 +1,8 @@
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import PopupWithForm from './PopupWithForm';
+import ImagePopup from './ImagePopup';
 
 function App() {
   return (
@@ -11,78 +13,41 @@ function App() {
         <Footer/>
       </div>
 
-      <div className="popup popup_type_edit">
-        <div className="popup__container">
-          <button className="popup__button" type="button"/>
-          <form className="form form_type_edit" action="#" name="editProfile">
-            <h2 className="form__title">Редактировать профиль</h2>
-            <div className="form__input-wrapper">
-              <input className="form__input" id="name" type="text" name="name" placeholder="Имя" minLength="2"
-                     maxLength="40" required/>
-                <span className="form__input-error name-error"/>
-            </div>
-            <div className="form__input-wrapper">
-              <input className="form__input" id="description" type="text" name="description" placeholder="Описание"
-                     minLength="2" maxLength="200" required/>
-                <span className="form__input-error description-error"/>
-            </div>
-            <button className="form__button" type="submit">Сохранить</button>
-          </form>
+      <PopupWithForm name="avatar-edit" title="Обновить аватар" buttonText="Сохранить">
+        <div className="form__input-wrapper">
+          <input className="form__input" id="avatar" type="url" name="avatar" placeholder="Ссылка на аватар" required/>
+          <span className="form__input-error avatar-error"/>
         </div>
-      </div>
+      </PopupWithForm>
 
-      <div className="popup popup_type_add">
-        <div className="popup__container">
-          <button className="popup__button" type="button"/>
-          <form className="form form_type_add" action="#" name="addCard">
-            <h2 className="form__title">Новое место</h2>
-            <div className="form__input-wrapper">
-              <input className="form__input" id="place" type="text" name="place" placeholder="Название" minLength="2"
-                     maxLength="30" required/>
-                <span className="form__input-error place-error"/>
-            </div>
-            <div className="form__input-wrapper">
-              <input className="form__input" id="link" type="url" name="link" placeholder="Ссылка на картинку" required/>
-                <span className="form__input-error link-error"/>
-            </div>
-            <button className="form__button" type="submit">Создать</button>
-          </form>
+      <PopupWithForm name="edit" title="Редактировать профиль" buttonText="Сохранить">
+        <div className="form__input-wrapper">
+          <input className="form__input" id="name" type="text" name="name" placeholder="Имя" minLength="2"
+                 maxLength="40" required/>
+          <span className="form__input-error name-error"/>
         </div>
-      </div>
+        <div className="form__input-wrapper">
+          <input className="form__input" id="description" type="text" name="description" placeholder="Описание"
+                 minLength="2" maxLength="200" required/>
+          <span className="form__input-error description-error"/>
+        </div>
+      </PopupWithForm>
 
-      <div className="popup popup_type_avatar-edit">
-        <div className="popup__container">
-          <button className="popup__button" type="button"/>
-          <form className="form form_type_avatar-edit" action="#" name="editAvatar">
-            <h2 className="form__title">Обновить аватар</h2>
-            <div className="form__input-wrapper">
-              <input className="form__input" id="avatar" type="url" name="avatar" placeholder="Ссылка на аватар" required/>
-                <span className="form__input-error avatar-error"/>
-            </div>
-            <button className="form__button" type="submit">Сохранить</button>
-          </form>
+      <PopupWithForm name="add" title="Новое место" buttonText="Создать">
+        <div className="form__input-wrapper">
+          <input className="form__input" id="place" type="text" name="place" placeholder="Название" minLength="2"
+                 maxLength="30" required/>
+          <span className="form__input-error place-error"/>
         </div>
-      </div>
+        <div className="form__input-wrapper">
+          <input className="form__input" id="link" type="url" name="link" placeholder="Ссылка на картинку" required/>
+          <span className="form__input-error link-error"/>
+        </div>
+      </PopupWithForm>
 
-      <div className="popup popup_type_image">
-        <div className="popup__container popup__container_type_image">
-          <button className="popup__button" type="button"/>
-          <div className="image">
-            <img className="image__item" src="#" alt="#"/>
-              <p className="image__description"/>
-          </div>
-        </div>
-      </div>
+      <PopupWithForm name="delete" title="Вы уверены?" buttonText="Да"/>
 
-      <div className="popup popup_type_delete">
-        <div className="popup__container">
-          <button className="popup__button" type="button"/>
-          <form className="form form_type_delete" action="#" name="deleteCard">
-            <h2 className="form__title form__title_type_delete">Вы уверены?</h2>
-            <button className="form__button form__button_type_delete" type="submit">Да</button>
-          </form>
-        </div>
-      </div>
+      <ImagePopup/>
 
       <template id="card-template">
         <article className="card">
