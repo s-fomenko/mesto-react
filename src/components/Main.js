@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '../utils/api'
+import Card from './Card';
 
 function Main(props) {
   const [userName, setUserName] = React.useState();
@@ -22,17 +23,7 @@ function Main(props) {
   }, []);
 
   const cardsList = cards.map((card, index) => (
-    <article className="card" key={index}>
-      <img className="card__image" src={card.link} alt={card.name}/>
-      <div className="card__inner">
-        <h2 className="card__title">{card.name}</h2>
-        <div className="card__wrapper">
-          <button className="card__button card__button_type_like" type="button"/>
-          <span className="card__likes-count">{card.likes.length}</span>
-        </div>
-      </div>
-      <button className="card__button card__button_type_remove" type="button"/>
-    </article>
+    <Card card={card} key={index}/>
   ));
 
   return (
