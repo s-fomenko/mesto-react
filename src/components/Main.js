@@ -23,7 +23,7 @@ function Main(props) {
   }, []);
 
   const cardsList = cards.map((card, index) => (
-    <Card card={card} key={index}/>
+    <Card card={card} key={index} onCardClick={props.onCardClick}/>
   ));
 
   return (
