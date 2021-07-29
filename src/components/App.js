@@ -22,6 +22,12 @@ function App() {
     setIsAddPlacePopupOpen(true);
   }
 
+  const closeAllPopups = () => {
+    setIsEditAvatarPopupOpen(false);
+    setIsEditProfilePopupOpen(false);
+    setIsAddPlacePopupOpen(false);
+  }
+
   return (
     <div className="page">
       <div className="container">
@@ -34,14 +40,26 @@ function App() {
         <Footer/>
       </div>
 
-      <PopupWithForm name="avatar-edit" title="Обновить аватар" buttonText="Сохранить" isOpen={isEditAvatarPopupOpen}>
+      <PopupWithForm
+        name="avatar-edit"
+        title="Обновить аватар"
+        buttonText="Сохранить"
+        isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
+      >
         <div className="form__input-wrapper">
           <input className="form__input" id="avatar" type="url" name="avatar" placeholder="Ссылка на аватар" required/>
           <span className="form__input-error avatar-error"/>
         </div>
       </PopupWithForm>
 
-      <PopupWithForm name="edit" title="Редактировать профиль" buttonText="Сохранить" isOpen={isEditProfilePopupOpen}>
+      <PopupWithForm
+        name="edit"
+        title="Редактировать профиль"
+        buttonText="Сохранить"
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
+      >
         <div className="form__input-wrapper">
           <input className="form__input" id="name" type="text" name="name" placeholder="Имя" minLength="2"
                  maxLength="40" required/>
@@ -54,7 +72,13 @@ function App() {
         </div>
       </PopupWithForm>
 
-      <PopupWithForm name="add" title="Новое место" buttonText="Создать" isOpen={isAddPlacePopupOpen}>
+      <PopupWithForm
+        name="add"
+        title="Новое место"
+        buttonText="Создать"
+        isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
+      >
         <div className="form__input-wrapper">
           <input className="form__input" id="place" type="text" name="place" placeholder="Название" minLength="2"
                  maxLength="30" required/>
