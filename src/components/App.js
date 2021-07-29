@@ -93,20 +93,6 @@ function App() {
       <PopupWithForm name="delete" title="Вы уверены?" buttonText="Да"/>
 
       <ImagePopup/>
-
-      <template id="card-template">
-        <article className="card">
-          <img className="card__image" src="#" alt="#"/>
-            <div className="card__inner">
-              <h2 className="card__title"/>
-              <div className="card__wrapper">
-                <button className="card__button card__button_type_like" type="button"/>
-                <span className="card__likes-count">6</span>
-              </div>
-            </div>
-            <button className="card__button card__button_type_remove" type="button"/>
-        </article>
-      </template>
     </div>
   );
 }
