@@ -1,18 +1,18 @@
 import React from 'react';
 
-function Card(props) {
+function Card({card, onCardClick}) {
   const handleClick = () => {
-    props.onCardClick(props.card);
+    onCardClick(card);
   }
 
   return (
     <article className="card">
-      <img className="card__image" src={props.card.link} alt={props.card.name} onClick={handleClick}/>
+      <img className="card__image" src={card.link} alt={card.name} onClick={handleClick}/>
       <div className="card__inner">
-        <h2 className="card__title">{props.card.name}</h2>
+        <h2 className="card__title">{card.name}</h2>
         <div className="card__wrapper">
           <button className="card__button card__button_type_like" type="button"/>
-          <span className="card__likes-count">{props.card.likes.length}</span>
+          <span className="card__likes-count">{card.likes.length}</span>
         </div>
       </div>
       <button className="card__button card__button_type_remove" type="button"/>
