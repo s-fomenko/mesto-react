@@ -76,6 +76,10 @@ class Api {
       .then(this._checkServerResponse)
   }
 
+  changeLikeCardStatus = (carId, isLiked) => {
+    return isLiked ? this.removeLike(carId) : this.setLike(carId);
+  }
+
   editUserAvatar = (avatar) => {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: 'PATCH',
