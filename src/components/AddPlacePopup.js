@@ -2,8 +2,13 @@ import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
 function AddPlacePopup({isOpen, onClose, onAddPlace}) {
-  const [place, setPlace] = React.useState();
-  const [link, setLink] = React.useState();
+  const [place, setPlace] = React.useState('');
+  const [link, setLink] = React.useState('');
+
+  React.useEffect(() => {
+    setPlace('');
+    setLink('');
+  }, [isOpen]);
 
   const handleAddPlace = e => setPlace(e.target.value);
   const handleAddLink = e => setLink(e.target.value);
@@ -14,8 +19,6 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
       name: place,
       link
     });
-    setPlace('');
-    setLink('');
   }
 
   return (
